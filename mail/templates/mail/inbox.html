@@ -1,0 +1,91 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <h2 id="user-mail" data-user="{{request.user.email}}" class="text-4xl font-bold mb-10 mt-5 text-end">{{ request.user.email }}</h2>
+
+    <div class="lg:fixed lg:left-0 lg:top-0 lg:h-screen lg:w-48 lg:flex lg:flex-col lg:bg-gray-900 z-10 px-2"> 
+      <h1 class="text-4xl mx-auto font-extrabold">Harmony</h1>
+      <button class="sidebar-icon lg:justify-center lg:text-2xl bg-spectrum-h3 hover:bg-spectrum-h1 font-semibold text-black lg:w-full lg:h-12 py-2 px-4 border border-gray-400 shadow group mt-10" id="compose">Compose
+        <span class='sidebar-tooltip group-hover:scale-100'>
+        Compose a New Mail
+    </span></button>
+      <button class=" sidebar-icon hover:bg-spectrum-h1 font-semibold lg:w-full py-2 px-4 border border-gray-400 shadow group" id="inbox">Inbox
+        <span class='sidebar-tooltip group-hover:scale-100'>
+        Open Your Inbox
+    </span></button>
+      <button class=" sidebar-icon hover:bg-spectrum-h1 font-semibold lg:w-full py-2 px-4 border border-gray-400 shadow group" id="sent">Sent
+        <span class='sidebar-tooltip group-hover:scale-100'>
+        View Mails you have Sent
+    </span></button>
+      <button class="sidebar-icon hover:bg-spectrum-h1 font-semibold lg:w-full py-2 px-4 border border-gray-400 shadow group" id="archived">Archived
+        <span class='sidebar-tooltip group-hover:scale-100'>
+        View Archived Mails
+    </span></button>
+    <a  class="mt-auto mb-5" href="{% url 'logout' %}">
+      <button class="sidebar-icon hover:bg-spectrum-h1 font-semibold lg:w-full py-2 px-4 border border-gray-400 shadow group">
+          Log Out
+          <span class='sidebar-tooltip group-hover:scale-100'>
+              Log Out
+          </span>
+      </button>
+  </a>
+  
+    </div>
+
+   <!--  <div class="mx-auto text-white text-2xl opacity-1" id="message"></div>
+
+<script>
+  // Wait for the page to load
+  window.addEventListener('load', function() {
+    // Get the message element
+    const message = document.getElementById('message');
+    // Add the transition class
+    message.classList.add('transition-opacity', 'duration-700');
+    // Wait a moment for the transition to take effect
+    setTimeout(function() {
+      // Set the opacity to 1 to show the message
+      message.style.opacity = 0;
+    }, 2000);
+  });
+</script>
+ -->
+
+
+
+    <hr class="mt-3 lg:ml-48 ">
+
+    <div id="emails-view" class="border border-b-0 border-white rounded-t-2xl mt-5 px-2 pt-2 min-h-screen lg:ml-48">
+    </div>
+
+    <div id="email-single-view" class="border-x border-y border-solid rounded-xl p-5 mt-5 mr-auto lg:ml-48 max-w-7xl min-w-1/2">
+        
+    </div>
+    <div id="compose-view" class="w-full max-w-4xl mx-auto">
+        <h3 class="text-4xl my-5 text-center ">New Email</h3>
+        <form id="compose-form" class="w-full">
+          <div class="mb-1">
+            <label for="from" class="block font-medium mb-1 text-white">From:</label>
+            <input id="from" disabled class="form-input w-full border-solid border-y border-x px-4 rounded-lg bg-gray-500 text-white" value="{{ request.user.email }}">
+          </div>
+          <div class="mb-1">
+            <label for="to" class="block font-medium mb-1 text-white">To:</label>
+            <input id="compose-recipients" class="form-input w-full border-solid border-y border-x bg-gray-600 text-white  px-4 rounded-lg">
+          </div>
+          <div class="mb-1">
+            <label for="subject" class="block font-medium mb-1 text-white">Subject:</label>
+            <input id="compose-subject" class="form-input w-full border-solid border-y border-x bg-gray-600 text-white   px-4 rounded-lg" placeholder="Subject">
+          </div>
+          <div class="mb-1">
+            <label for="body" class="block font-medium mb-1 text-white">Body:</label>
+            <textarea id="compose-body" class="form-textarea w-full border-solid px-4 py-2 border-y border-x rounded-lg bg-gray-600 text-white  resize-none" placeholder=""></textarea>
+          </div>
+          <input type="submit" id="compose-submit" class="bg-white hover:bg-spectrum-h3 text-gray-800 font-semibold py-2 px-6 border border-gray-400 rounded-3xl shadow mb-10" value="Send">
+        </form>
+      </div>
+      
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %}

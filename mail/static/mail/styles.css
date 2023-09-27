@@ -1,0 +1,63 @@
+textarea {
+    min-height: 400px;
+}
+/* .email {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    position: relative;
+} */
+.email-bg {
+    background-color: gray;
+}
+
+.timestamp {
+    position: absolute;
+    top: 9px;
+    right: 6px;
+}
+
+.subject {
+    position: absolute;
+    top: 9px;
+    left: 20%;
+}
+
+
+@media (max-width: 1239px) {
+    .subject {
+        left: 30%;
+    }
+}
+
+
+
+@media (max-width: 920px) {
+    .subject {
+      font-size: 14px;
+      left: 40%;
+    }
+    .timestamp {
+        position: absolute;
+        right: 6px;
+        top: 0px;
+        font-size: 10px;
+    }
+    .sender {
+        font-size: 14px;
+        margin-right: 10px;
+
+    }
+  }
+
+
+/*   font-family: 'JetBrains Mono', monospace;
+  font-family: 'Roboto', sans-serif; */
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1,h2, h3, h4, h5, h6 {
+    font-family: 'JetBrains Mono', monospace;
+}

@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+  h1 {
+    @apply text-spectrum-h1
+  }
+  h2 {
+    @apply text-spectrum-h2
+  }
+  h3 {
+    @apply text-spectrum-h3
+  }
+  h4 {
+    @apply text-spectrum-h4
+  }
+  h5 {
+    @apply text-spectrum-h5
+  }
+  h6 {
+    @apply text-spectrum-h6
+  }
+    .sidebar-icon{
+      @apply relative lg:flex items-center justify-start lg:h-8 lg:w-12 mt-2 mb-2
+      bg-gray-900 hover:border-white text-white hover:border
+      rounded-lg hover:rounded-3xl transition-all duration-300 ease-linear;
+    }
+    .sidebar-tooltip {
+      @apply absolute w-auto p-2 m-2 min-w-max left-24 rounded-md shadow-md
+      text-white bg-gray-900 
+      text-xs font-bold 
+      transition-all duration-100 scale-0 lg:origin-left z-20;
+    }
+
+  
+  }
